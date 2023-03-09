@@ -1,0 +1,19 @@
+{
+  "logInDescription": "Facebook giúp bạn kết nối và chia sẻ với mọi người trong cuộc sống của bạn.",
+  "facebook": "facebook",
+  "placeholder": {
+    "emailOrPhoneNumberSignIn": "Email hoặc số điện thoại",
+    "password": "Mật khẩu"
+  },
+  "button": {
+    "login": "Đăng nhập",
+    "forgotPassword": "Quên mật khẩu?",
+    "createNewAccount": "Tạo tài khoản mới"
+  },
+  "error": {
+    "email": "Email không hợp lệ",
+    "minPassword": "Mật khẩu ít nhất 6 ký tự",
+    "maxPassword": "Mật khẩu nhiều nhất 50 ký tự",
+    "isARequiredField": "{{field}} là một trường bắt buộc"
+  }
+}

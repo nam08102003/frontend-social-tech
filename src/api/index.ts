@@ -1,10 +1,12 @@
 import axios from 'axios';
-import { store } from '../stores';
-import { commonActions } from '../stores/slices/common';
+
+export default axios.create({
+  baseURL: 'https://backend-social-tech.vercel.app',
+});
 
 const FBConnectionInstance = axios.create({
   timeout: 20000,
-  baseURL: '/api',
+  baseURL: 'https://backend-social-tech.vercel.app',
 });
 
 FBConnectionInstance.interceptors.request.use((config) => {
@@ -21,17 +23,20 @@ FBConnectionInstance.interceptors.response.use(
     data: response.data,
   }),
   (error) => {
-    const message = error.response?.data?.error?.message || error?.message;
-
-    store.dispatch(
-      commonActions.showAlertMessage({
-        type: 'error',
-        message,
-      }),
-    );
-
     return Promise.reject(error);
   },
 );
 
-export default FBConnectionInstance;
+export const setToken = (token: string) => {
+  if (!FBConnectionInstance.defaults.headers.Authorization) {
+    FBConnectionInstance.defaults.headers.Authorization = `Bearer ${token}`;
+  }
+};
+
+export const clearToken = () => {
+  if (FBConnectionInstance.defaults.headers.Authorization) {
+    delete FBConnectionInstance.defaults.headers.Authorization;
+  }
+};
+
+export { FBConnectionInstance };

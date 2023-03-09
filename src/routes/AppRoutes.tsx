@@ -1,10 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
-import DevPage from '../pages/Dev';
+import Login from '../pages/auth';
+import Homepage from '../pages/home';
 
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route index path="/" element={<DevPage />} />
+      <Route path="/" element={<Homepage />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 };

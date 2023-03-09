@@ -1,9 +1,8 @@
-import { Box, CircularProgress } from '@mui/material';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import ThemeWrapperProvider from './containers/Provider/Theme';
-import DevPage from './pages/Dev';
+import AppRoutes from './routes/AppRoutes';
 import { store } from './stores';
 
 function App() {
@@ -11,9 +10,7 @@ function App() {
     <Provider store={store}>
       <ThemeWrapperProvider>
         <BrowserRouter>
-          <Routes>
-            <Route index path="/" element={<DevPage />} />
-          </Routes>
+          <AppRoutes />
         </BrowserRouter>
       </ThemeWrapperProvider>
     </Provider>

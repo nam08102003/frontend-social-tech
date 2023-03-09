@@ -1,6 +1,10 @@
 import { ThemeProvider } from '@emotion/react';
 import { CssBaseline, GlobalStyles } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import useGetCookieData from '../../hooks/useGetCookie';
+import { useLazyGetUserQuery } from '../../stores/services/user';
+import { authActions } from '../../stores/slices/auth';
 import { theme } from '../../theme';
 
 import Toaster from './Toaster';
@@ -10,19 +14,35 @@ interface ThemeWrapperProviderProps {
 }
 
 const ThemeWrapperProvider = ({ children }: ThemeWrapperProviderProps) => {
+  const dispatch = useDispatch();
+  const [getUser] = useLazyGetUserQuery();
+  const { token, loaded } = useGetCookieData();
+
+  useEffect(() => {
+    if (token && loaded) {
+      getUser({ token })
+        .unwrap()
+        .then((data) => {
+          dispatch(
+            authActions.setAuth({
+              accessToken: token,
+              user: data.result,
+            }),
+          );
+        });
+    }
+  }, [token]);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Toaster />
       <GlobalStyles
         styles={{
-          '::-webkit-scrollbar': {
-            width: 16
-          },
           '::-webkit-scrollbar-thumb': {
             borderRight: '8px #d6d7db solid',
-            backgroundClip: 'padding-box'
-          }
+            backgroundClip: 'padding-box',
+          },
         }}
       />
       {children}
