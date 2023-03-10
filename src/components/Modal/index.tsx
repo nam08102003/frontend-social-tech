@@ -34,8 +34,7 @@ const FBModal = ({ title, children, containerProps, buttonProps, ...props }: FBM
           },
           ...containerProps?.sx,
         }}
-        {...omit(containerProps, ['sx'])}
-      >
+        {...omit(containerProps, ['sx'])}>
         <Box>
           {title && (
             <Box width="100%" pb={3}>
@@ -47,8 +46,7 @@ const FBModal = ({ title, children, containerProps, buttonProps, ...props }: FBM
                 lineHeight={theme.spacing(4)}
                 minWidth={0}
                 overflow="hidden"
-                textOverflow="ellipsis"
-              >
+                textOverflow="ellipsis">
                 {title}
               </Typography>
             </Box>

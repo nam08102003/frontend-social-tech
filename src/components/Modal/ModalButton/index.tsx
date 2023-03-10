@@ -26,9 +26,9 @@ const ModalButton = ({ color, label, loading, disabled, onClose, onClick }: Moda
         ...(disabled
           ? {
               backgroundColor: theme.palette.grey[200],
-              opacity: 0.3
+              opacity: 0.3,
             }
-          : {})
+          : {}),
       }}>
       <Typography color={color} fontWeight={500}>
         {label}

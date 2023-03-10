@@ -14,13 +14,13 @@ export interface CommonState {
 const initialState: CommonState = {
   message: {
     open: false,
-    message: ''
-  }
+    message: '',
+  },
 };
 
 const showAlertMessage: CaseReducer<CommonState, PayloadAction<Omit<MessageState, 'open'>>> = (
   state,
-  { payload }
+  { payload },
 ) => {
   state.message = { ...payload, open: true };
 };
@@ -34,8 +34,8 @@ const commonSlice = createSlice({
   initialState,
   reducers: {
     showAlertMessage,
-    hideAlertMessage
-  }
+    hideAlertMessage,
+  },
 });
 
 export const commonReducer = commonSlice.reducer;

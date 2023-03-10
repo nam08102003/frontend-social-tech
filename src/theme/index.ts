@@ -1,37 +1,31 @@
-import { createTheme, PaletteColor, PaletteColorOptions } from '@mui/material/styles';
+import { createTheme, PaletteColor, PaletteColorOptions, ThemeOptions } from '@mui/material/styles';
 
 const colors = {
   primary: {
-    main: '#1B74E4'
+    main: '#1877f2',
   },
   secondary: {
-    main: '#000000'
+    main: '#42b72a',
   },
   tertiary: {
-    main: '#FF9500'
+    main: '#FF9500',
   },
   grey: {
     100: '#FCFCFD',
-    200: '#F5F7F9',
-    300: '#F3F4F8',
-    350: '#D2D4DA',
-    400: '#9496A1',
-    450: '#777986',
-    500: '#0000003B',
-    550: '#00000099',
-    600: '#0000008A',
-    700: '#00000099',
-    800: '#1F1F1F'
+    500: '#f0f2f5',
+    700: '#0000003B',
+    800: '#737373',
   },
   error: {
-    main: '#E23229'
+    main: '#E23229',
   },
   text: {
-    main: '#000000'
-  }
+    main: '#000000',
+  },
 };
+export let theme = createTheme();
 
-export const theme = createTheme({
+const themeOptions: ThemeOptions = {
   palette: {
     primary: colors.primary,
     secondary: colors.secondary,
@@ -39,37 +33,37 @@ export const theme = createTheme({
     grey: colors.grey,
     success: { main: '#34C759' },
     error: colors.error,
-    warning: { main: '#FFCC00', dark: '#F7BA1E' }
+    warning: { main: '#FFCC00', dark: '#F7BA1E' },
   },
   breakpoints: {
     values: {
       xs: 0,
       sm: 600,
       md: 900,
-      lg: 1156,
-      xl: 1536
-    }
+      lg: 1280,
+      xl: 1536,
+    },
   },
   components: {
     MuiTab: {
       styleOverrides: {
-        root: { textTransform: 'none', fontSize: 16, fontWeight: 500, minWidth: 'unset' }
-      }
+        root: { textTransform: 'none', fontSize: 16, fontWeight: 500, minWidth: 'unset' },
+      },
     },
     MuiButton: {
       variants: [
         {
           props: { variant: 'noStyle' },
           style: {
-            color: colors.text.main
-          }
-        }
+            color: colors.text.main,
+          },
+        },
       ],
       styleOverrides: {
         root: {
           backgroundColor: colors.primary.main,
           color: '#ffffff',
-          borderColor: colors.grey[350],
+          borderColor: colors.grey[100],
           fontSize: '16px',
           fontWeight: 500,
           lineHeight: '24px',
@@ -77,57 +71,43 @@ export const theme = createTheme({
           textTransform: 'none',
           minHeight: 'auto',
           boxShadow:
-            '0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 1px 5px rgba(0, 0, 0, 0.12)'
+            '0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 1px 5px rgba(0, 0, 0, 0.12)',
         },
         sizeLarge: {
           padding: '16px',
           fontSize: '18px',
-          lineHeight: '24px'
+          lineHeight: '24px',
         },
         sizeSmall: {
           padding: '10px 16px',
           fontSize: '14px',
-          lineHeight: '20px'
+          lineHeight: '20px',
         },
         contained: {
           color: '#FFFFFF',
-          backgroundColor: '#000000',
-
-          '&:hover': {
-            backgroundColor: 'rgba(0,0,0,0.3)',
-            color: '#000000'
-          },
 
           '&.Mui-disabled': {
-            backgroundColor: colors.grey[400],
-            color: '#FFFFFF'
-          }
+            backgroundColor: colors.grey[500],
+            color: '#FFFFFF',
+          },
         },
         containedInherit: {
-          backgroundColor: colors.grey[100],
+          backgroundColor: colors.grey[500],
           color: colors.primary.main,
 
-          '&:hover': {
-            backgroundColor: colors.grey[100]
-          },
-
           '&.Mui-disabled': {
-            backgroundColor: colors.grey[100],
-            color: colors.grey[500]
-          }
+            backgroundColor: colors.grey[500],
+            color: colors.grey[500],
+          },
         },
         containedSecondary: {
-          backgroundColor: colors.primary.main,
-          color: colors.primary.main,
-
-          '&:hover': {
-            backgroundColor: colors.primary.main
-          },
+          backgroundColor: colors.secondary.main,
+          color: '#fff',
 
           '&.Mui-disabled': {
-            backgroundColor: colors.primary.main,
-            color: colors.primary.main
-          }
+            backgroundColor: colors.grey[500],
+            color: '#FFFFFF',
+          },
         },
         text: {
           color: '#000000',
@@ -137,14 +117,14 @@ export const theme = createTheme({
           borderRadius: 8,
           '&.Mui-disabled': {
             color: colors.grey[500],
-            borderColor: colors.grey[500]
+            borderColor: colors.grey[500],
           },
           '&:hover': {
-            borderColor: '#ffffff'
-          }
+            borderColor: '#ffffff',
+          },
         },
         textError: {
-          color: colors.error.main
+          color: colors.error.main,
         },
         outlined: {
           color: '#000000',
@@ -152,71 +132,73 @@ export const theme = createTheme({
           borderRadius: 8,
           boxShadow: 'none',
           '&.Mui-disabled': {
-            color: colors.grey[500]
+            color: colors.grey[500],
           },
           '&:hover': {
-            borderColor: '#ffffff'
-          }
-        }
-      }
-    }
+            borderColor: '#ffffff',
+          },
+        },
+      },
+    },
   },
   typography: {
     allVariants: {
-      margin: 0
+      margin: 0,
     },
     h1: {
       fontSize: '60px',
       fontWeight: 600,
-      lineHeight: '68px'
+      lineHeight: '68px',
     },
     h2: {
       fontSize: '34px',
       fontWeight: 600,
-      lineHeight: '48px'
+      lineHeight: '48px',
     },
     title1: {
       fontSize: '28px',
       fontWeight: 600,
-      lineHeight: '38px'
+      lineHeight: '38px',
     },
     title2: {
       fontSize: '22px',
       fontWeight: 600,
-      lineHeight: '30px'
+      lineHeight: '30px',
     },
     title3: {
       fontSize: '20px',
       fontWeight: 600,
-      lineHeight: '28px'
+      lineHeight: '28px',
     },
     title4: {
       fontSize: '18px',
       fontWeight: 500,
-      lineHeight: '24px'
+      lineHeight: '24px',
     },
     body: {
       fontSize: '16px',
-      lineHeight: '24px'
+      lineHeight: '24px',
     },
     footnote: {
       fontSize: '14px',
-      lineHeight: '20px'
+      lineHeight: '20px',
     },
     caption: {
       fontSize: '13px',
-      lineHeight: '18px'
+      lineHeight: '18px',
     },
     caption1: {
       fontSize: '12px',
-      lineHeight: '16px'
+      lineHeight: '16px',
     },
     caption2: {
       fontSize: '10px',
-      lineHeight: '12px'
-    }
-  }
-});
+      lineHeight: '12px',
+    },
+  },
+};
+
+theme = createTheme(themeOptions);
 
 export type CustomizedTheme = typeof theme;
 
@@ -291,6 +273,5 @@ declare module '@mui/material/Button' {
 }
 
 declare module '@emotion/react' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
   export interface Theme extends CustomizedTheme {}
 }

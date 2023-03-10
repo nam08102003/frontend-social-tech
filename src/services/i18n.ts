@@ -1,3 +1,4 @@
+import vi from './locales/vi.json';
 import en from './locales/en.json';
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -8,16 +9,19 @@ i18n
   .use(LanguageDetector)
   .init({
     returnNull: false,
-    fallbackLng: 'en',
+    fallbackLng: 'vi',
     debug: true,
     resources: {
+      vi: {
+        translation: vi,
+      },
       en: {
-        translation: en
-      }
+        translation: en,
+      },
     },
     interpolation: {
-      escapeValue: false
-    }
+      escapeValue: false,
+    },
   });
 
 export default i18n;
