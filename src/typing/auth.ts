@@ -41,5 +41,5 @@ export interface SignUpParams {
 }
 
 export interface LogoutParam {
-  userId: string;
+  token: string;
 }

@@ -1,12 +1,12 @@
 import axios from 'axios';
 
 export default axios.create({
-  baseURL: 'https://backend-social-tech.vercel.app',
+  baseURL: process.env.REACT_APP_BASE_API,
 });
 
 const FBConnectionInstance = axios.create({
   timeout: 20000,
-  baseURL: 'https://backend-social-tech.vercel.app',
+  baseURL: process.env.REACT_APP_BASE_API,
 });
 
 FBConnectionInstance.interceptors.request.use((config) => {

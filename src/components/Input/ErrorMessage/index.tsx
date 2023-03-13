@@ -3,7 +3,7 @@ import React, { ElementType } from 'react';
 
 import { StyledFormHelperText } from './ErrorMessage.styled';
 
-import { ReactComponent as AlertIcon } from '../../../assets/alertIcon.svg';
+import { ReactComponent as AlertIcon } from 'assets/alertIcon.svg';
 
 export interface FBInputErrorMessageProps extends FormHelperTextProps {
   component?: ElementType;

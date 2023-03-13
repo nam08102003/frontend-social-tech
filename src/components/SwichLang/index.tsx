@@ -1,7 +1,7 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import React from 'react';
-import i18n from '../../services/i18n';
-import { theme } from '../../theme';
+import i18n from 'services/i18n';
+import { theme } from 'theme';
 
 const langs = {
   en: { nativeName: 'English' },
@@ -9,14 +9,16 @@ const langs = {
 };
 
 const SwitchLang = () => {
-  const handleSwitch = (lang) => {
+  const handleSwitch = (lang: string) => {
     i18n.changeLanguage(lang);
   };
+
   return (
     <Box>
       {Object.keys(langs).map((lang) => (
         <Button
           sx={{
+            fontSize: 12,
             '&.Mui-disabled': {
               color: theme.palette.grey[800],
             },

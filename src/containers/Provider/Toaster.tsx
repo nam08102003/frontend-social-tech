@@ -1,8 +1,8 @@
 import { Alert, Snackbar } from '@mui/material';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppState } from '../../stores';
-import { commonActions } from '../../stores/slices/common';
+import { AppState } from 'stores';
+import { commonActions } from 'stores/slices/common';
 
 const Toaster = () => {
   const dispatch = useDispatch();

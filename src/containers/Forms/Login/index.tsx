@@ -2,17 +2,17 @@ import { Box, BoxProps, Button, CircularProgress, Typography } from '@mui/materi
 import { omit } from 'lodash';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import FBInput from '../../../components/Input';
-import FBWrapperBox from '../../../components/Wrapper';
-import { theme } from '../../../theme';
+import FBInput from 'components/Input';
+import FBWrapperBox from 'components/Wrapper';
+import { theme } from 'theme';
 import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
-import { LoginParams } from '../../../typing/auth';
+import { LoginParams } from 'typing/auth';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../../stores';
-import { authActions, handleLogin } from '../../../stores/slices/auth';
-import { commonActions } from '../../../stores/slices/common';
+import { AppDispatch } from 'stores';
+import { authActions, handleLogin } from 'stores/slices/auth';
+import { commonActions } from 'stores/slices/common';
 import { useNavigate } from 'react-router-dom';
 
 const LoginForm = (props: BoxProps) => {
@@ -56,11 +56,7 @@ const LoginForm = (props: BoxProps) => {
 
   return (
     <FBWrapperBox
-      containerProps={{
-        sx: {
-          flexGrow: props?.flexGrow,
-        },
-      }}
+      containerProps={props}
       sx={{
         width: 400,
         textAlign: 'center',
