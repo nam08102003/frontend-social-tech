@@ -1,7 +1,7 @@
 import { Box, BoxProps, Modal, ModalProps, Typography } from '@mui/material';
 import { omit } from 'lodash';
 import React from 'react';
-import { theme } from '../../theme';
+import { theme } from 'theme';
 
 import * as Styles from './Modal.styled';
 import ModalButton from './ModalButton';

@@ -40,7 +40,7 @@ const themeOptions: ThemeOptions = {
       xs: 0,
       sm: 600,
       md: 900,
-      lg: 1280,
+      lg: 980,
       xl: 1536,
     },
   },
@@ -146,7 +146,7 @@ const themeOptions: ThemeOptions = {
       margin: 0,
     },
     h1: {
-      fontSize: '60px',
+      fontSize: '66px',
       fontWeight: 600,
       lineHeight: '68px',
     },
@@ -161,18 +161,15 @@ const themeOptions: ThemeOptions = {
       lineHeight: '38px',
     },
     title2: {
-      fontSize: '22px',
-      fontWeight: 600,
+      fontSize: '24px',
       lineHeight: '30px',
     },
     title3: {
       fontSize: '20px',
-      fontWeight: 600,
       lineHeight: '28px',
     },
     title4: {
       fontSize: '18px',
-      fontWeight: 500,
       lineHeight: '24px',
     },
     body: {
@@ -192,8 +189,8 @@ const themeOptions: ThemeOptions = {
       lineHeight: '16px',
     },
     caption2: {
-      fontSize: '10px',
-      lineHeight: '12px',
+      fontSize: '11px',
+      lineHeight: '15px',
     },
   },
 };

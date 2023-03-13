@@ -58,7 +58,7 @@ export const handleSignUp = createAsyncThunk<AuthResponse, SignUpParams>(
 
 export const handleLogout = createAsyncThunk<void, LogoutParam>('auth/logout', async (body) => {
   try {
-    await FBConnectionInstance.post('/auth/logout', body);
+    await FBConnectionInstance.post('/auth/logout', { headers: { body } });
   } catch (error: any) {
     throw new Error(error);
   }

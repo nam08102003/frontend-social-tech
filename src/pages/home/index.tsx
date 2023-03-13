@@ -1,11 +1,11 @@
 import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Navigate, useNavigate } from 'react-router-dom';
-import LoadingCircle from '../../components/Loading/Circle';
-import useGetCookieData from '../../hooks/useGetCookie';
-import { AppState } from '../../stores';
-import { handleLogout as logOut } from '../../stores/slices/auth';
+import { Navigate } from 'react-router-dom';
+import Loading from 'components/Loading';
+import useGetCookieData from 'hooks/useGetCookie';
+import { AppState } from 'stores';
+import { handleLogout as logOut } from 'stores/slices/auth';
 
 const Homepage = () => {
   const { token, loaded, clearCookieData } = useGetCookieData();
@@ -13,11 +13,11 @@ const Homepage = () => {
 
   const handleLogout = () => {
     clearCookieData('token');
-    logOut({ userId: user?.id as string });
+    logOut({ token: token as string });
   };
 
   if (!token && loaded) {
-    return <Navigate to="/login" />;
+    return <Navigate to="/auth" />;
   }
 
   if (token && loaded) {
@@ -31,7 +31,7 @@ const Homepage = () => {
     );
   }
 
-  return <LoadingCircle />;
+  return <Loading />;
 };
 
 export default Homepage;

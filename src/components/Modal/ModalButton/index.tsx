@@ -1,8 +1,8 @@
 import { Button, CircularProgress, ModalProps, Typography } from '@mui/material';
 import React from 'react';
 
+import { theme } from 'theme';
 import { FBModalButtonProps } from '..';
-import { theme } from '../../../theme';
 
 interface ModalButtonProps extends FBModalButtonProps, Pick<ModalProps, 'onClose'> {}
 

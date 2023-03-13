@@ -1,12 +1,11 @@
 import { ThemeProvider } from '@emotion/react';
+import useGetCookieData from 'hooks/useGetCookie';
 import { CssBaseline, GlobalStyles } from '@mui/material';
+import { useLazyGetUserQuery } from 'stores/services/user';
+import { authActions } from 'stores/slices/auth';
+import { theme } from 'theme';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import useGetCookieData from '../../hooks/useGetCookie';
-import { useLazyGetUserQuery } from '../../stores/services/user';
-import { authActions } from '../../stores/slices/auth';
-import { theme } from '../../theme';
-
 import Toaster from './Toaster';
 
 interface ThemeWrapperProviderProps {

@@ -1,20 +1,22 @@
 import { Box, Container, Typography } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import LoginForm from '../../containers/Form/Login';
-import useGetCookieData from '../../hooks/useGetCookie';
+import LoginForm from 'containers/Forms/Login';
+import useGetCookieData from 'hooks/useGetCookie';
 import { useNavigate } from 'react-router-dom';
-import LoadingCircle from '../../components/Loading/Circle';
-import { theme } from '../../theme';
-import SwitchLang from '../../components/SwithLang';
+import { theme } from 'theme';
+import Loading from 'components/Loading';
+import useResponsive from 'hooks/useResponsive';
+import Footer from 'containers/Layouts/Footer';
 
-const Login = () => {
+const Auth = () => {
   const { t } = useTranslation();
   const { token, loaded } = useGetCookieData();
   const navigate = useNavigate();
+  const { matched, isDesktop } = useResponsive();
 
   if (!loaded) {
-    return <LoadingCircle />;
+    return <Loading />;
   }
 
   if (token) {
@@ -26,31 +28,39 @@ const Login = () => {
       <Box bgcolor={theme.palette.grey[500]}>
         <Container
           maxWidth="lg"
-          style={{
+          sx={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
             height: '100vh',
+            gap: 3,
             [theme.breakpoints.down('md')]: {
-              display: 'block',
+              height: 'auto',
+              py: 10,
+              flexDirection: 'column',
+              justifyContent: 'center',
             },
           }}>
-          <Box width="50%" paddingRight={5} textAlign="left">
-            <Box>
-              <Typography color={theme.palette.primary.main} variant="h1">
-                {t('facebook')}
-              </Typography>
-            </Box>
-            <Typography variant="title1">{t('logInDescription')}</Typography>
+          <Box
+            width="100%"
+            display="flex"
+            flexDirection="column"
+            gap={2}
+            textAlign={{ xs: 'center', md: 'left' }}
+            maxWidth={450}>
+            <Typography color={theme.palette.primary.main} variant="h1">
+              {t('facebook')}
+            </Typography>
+            <Typography variant={!isDesktop ? 'title2' : 'title1'}>
+              {t('logInDescription')}
+            </Typography>
           </Box>
           <LoginForm />
         </Container>
       </Box>
-      <Container maxWidth="lg">
-        <SwitchLang />
-      </Container>
+      <Footer />
     </>
   );
 };
 
-export default Login;
+export default Auth;

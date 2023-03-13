@@ -29,12 +29,18 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowUnreachableCode": false,
+    "allowSyntheticDefaultImports": true,
 
     "noImplicitThis": false,
     "noUnusedLocals": false,
     "noUnusedParameters": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+
+    "baseUrl": "src",
+    "paths": {
+      "*": ["./*"]
+    }
   },
-  "include": ["**/*.ts", "**/*.tsx", "src/*/*.svg"],
+  "include": ["**/*.ts", "**/*.tsx", "src/*/*.svg", "src"],
   "exclude": ["node_modules"]
 }
